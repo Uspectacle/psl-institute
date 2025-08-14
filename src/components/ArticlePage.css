@@ -1,0 +1,486 @@
+.article-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 0;
+  margin: 0;
+}
+
+.article-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.back-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-link:hover {
+  color: #5a6fd8;
+}
+
+.article-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.article-header {
+  margin-bottom: 3rem;
+  border-bottom: 2px solid #f8f9fa;
+  padding-bottom: 2rem;
+}
+
+.article-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.category-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.category-research {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.category-review {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+}
+
+.category-conference {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: white;
+}
+
+.category-preprint {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  color: #2c3e50;
+}
+
+.publication-date {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.article-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.2;
+  margin: 0 0 2rem 0;
+  letter-spacing: -0.01em;
+}
+
+.article-authors h2,
+.publication-info h2 {
+  font-size: 1.3rem;
+  color: #495057;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.authors-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.author-name {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.publication-info {
+  margin-top: 2rem;
+}
+
+.publication-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.journal-name {
+  font-style: italic;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.volume,
+.pages {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.doi-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.doi-link:hover {
+  color: #5a6fd8;
+  text-decoration: underline;
+}
+
+.article-body {
+  line-height: 1.7;
+}
+
+.article-body h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 2.5rem 0 1rem 0;
+  font-weight: 600;
+  border-left: 4px solid #667eea;
+  padding-left: 1rem;
+}
+
+.abstract-section {
+  margin-bottom: 2.5rem;
+}
+
+.abstract-content {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.abstract-content p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #495057;
+  line-height: 1.6;
+}
+
+.keywords-section {
+  margin-bottom: 2.5rem;
+}
+
+.keywords-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.keyword-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.download-section {
+  margin-bottom: 2.5rem;
+}
+
+.download-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.pdf-download-btn,
+.external-link-btn,
+.pdf-preview-btn {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.pdf-download-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.pdf-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.pdf-preview-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.pdf-preview-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+.external-link-btn {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.external-link-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* PDF Preview Styles */
+.pdf-preview-container {
+  margin-top: 2rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-preview-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.pdf-preview-header h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.preview-note {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.pdf-embed-wrapper {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background: #f8f9fa;
+}
+
+.pdf-embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+.pdf-preview-error {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+}
+
+.pdf-preview-error h3 {
+  color: #856404;
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.pdf-preview-error p {
+  color: #856404;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+.pdf-preview-error .pdf-download-btn {
+  background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+  color: #212529;
+  font-weight: 600;
+}
+
+.pdf-preview-error .pdf-download-btn:hover {
+  background: linear-gradient(135deg, #e0a800 0%, #ea6100 100%);
+}
+
+.citation-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f8f9fa;
+}
+
+.citation-formats {
+  display: grid;
+  gap: 2rem;
+}
+
+.citation-format h3 {
+  font-size: 1.2rem;
+  color: #495057;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.citation-text {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  font-family: "Georgia", serif;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.bibtex-citation {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.article-not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-top: 3rem;
+}
+
+.article-not-found h1 {
+  font-size: 2rem;
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.article-not-found p {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.back-home {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.back-home:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .article-content {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .article-title {
+    font-size: 2rem;
+  }
+
+  .article-meta-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .authors-list {
+    flex-direction: column;
+  }
+
+  .publication-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .download-actions {
+    flex-direction: column;
+  }
+
+  .citation-formats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-nav {
+    padding: 1rem;
+  }
+
+  .article-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .article-title {
+    font-size: 1.7rem;
+  }
+
+  .pdf-download-btn,
+  .external-link-btn,
+  .pdf-preview-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pdf-embed-wrapper {
+    height: 500px;
+  }
+}

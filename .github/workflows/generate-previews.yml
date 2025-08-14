@@ -1,0 +1,55 @@
+name: Generate PDF Previews
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "public/pdfs/**"
+      - "src/data/articles.ts"
+  workflow_dispatch:
+
+jobs:
+  generate-previews:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install ImageMagick (for pdf2pic)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          # Configure ImageMagick policy for PDF processing
+          sudo sed -i 's/rights="none" pattern="PDF"/rights="read|write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
+
+      - name: Generate PDF previews
+        run: |
+          npm run generate-previews
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code public/previews/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/previews/
+          git commit -m "🖼️ Auto-generate PDF previews [skip ci]"
+          git push
