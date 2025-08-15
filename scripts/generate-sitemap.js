@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Read articles from JSON file
-const articlesPath = path.join(__dirname, "../public/articles.json");
+const articlesPath = path.join(__dirname, "../src/data/articles.json");
 
 let articlesData;
 try {

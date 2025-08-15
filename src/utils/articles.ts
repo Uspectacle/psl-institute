@@ -1,4 +1,4 @@
-import articlesData from "../../public/articles.json";
+import articlesData from "../data/articles.json";
 
 export interface Article {
   id: string;
