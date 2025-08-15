@@ -153,7 +153,7 @@ const ArticlePage: React.FC = () => {
                   </div>
                   <div className="pdf-embed-wrapper">
                     <iframe
-                      src={`${process.env.PUBLIC_URL}/pdfUrl`}
+                      src={pdfUrl}
                       className="pdf-embed"
                       title={`PDF Preview: ${article.title}`}
                       onError={handlePreviewError}
@@ -179,7 +179,7 @@ const ArticlePage: React.FC = () => {
                     browser restrictions or PDF security settings.
                   </p>
                   <a
-                    href={article.pdfUrl}
+                    href={pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="pdf-download-btn"
