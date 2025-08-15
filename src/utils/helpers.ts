@@ -23,11 +23,7 @@ export const getCategoryBadge = (category: string): string => {
 };
 
 export const getPdfEmbedUrl = (pdfUrl: string): string => {
-  // For GitHub Pages or other relative paths, construct the full URL
-  const fullUrl = pdfUrl.startsWith("http")
-    ? pdfUrl
-    : `${window.location.origin}${pdfUrl}`;
-
-  // Use PDF.js viewer or fallback to direct embed
+  const fullUrl = pdfUrl.startsWith("http") ? pdfUrl : `./${pdfUrl}`;
+  
   return `${fullUrl}#toolbar=1&navpanes=1&scrollbar=1`;
 };
