@@ -245,7 +245,6 @@
 }
 
 .pdf-download-btn:hover {
-  transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(237, 150, 1, 0.4);
 }
 
@@ -258,7 +257,6 @@
 }
 
 .pdf-preview-btn:hover {
-  transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(182, 115, 0, 0.4);
 }
 
@@ -271,7 +269,6 @@
 .external-link-btn:hover {
   background: var(--primary-color);
   color: var(--background-dark);
-  transform: translateY(-3px);
 }
 
 /* PDF Preview Styles */
@@ -430,7 +427,6 @@
 .back-home:hover {
   background: var(--primary-color);
   color: var(--background-dark);
-  transform: translateY(-2px);
 }
 
 /* Responsive Design */

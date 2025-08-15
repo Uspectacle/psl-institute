@@ -8,7 +8,7 @@ Built by friends, for friends.
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen?logo=github)
 ![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Ready-4285F4?logo=google-scholar)
 
-**[Check out the live demo! 🌍](https://uspectacle.github.io/psl-institute/)**
+**[Enter the library](https://uspectacle.github.io/psl-institute/)**
 
 ---
 
@@ -30,7 +30,7 @@ AI assistance was used during this project.
 
 ```bash
 # Clone the repository
-git clone [https://github.com/uspectacle/psl-institute.git](https://github.com/uspectacle/psl-institute.git)
+git clone [https://github.com/Uspectacle/psl-institute.git](https://github.com/Uspectacle/psl-institute.git)
 cd psl-institute
 
 # Install dependencies
@@ -71,10 +71,3 @@ We welcome contributions from our research community!
 ## 📜 License
 
 This project is licensed under the GNU General Public License v3.0. See the LICENSE file for more details.
-
-
-
-
-
-
-

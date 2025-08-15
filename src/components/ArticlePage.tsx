@@ -1,85 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { articles } from "../data/articles";
 import "./ArticlePage.css";
-import { formatDate, getCategoryBadge } from "../utils/helpers";
+import { formatDate, getCategoryBadge, getPdfEmbedUrl } from "../utils/helpers";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faFilePdf,
+  faExternalLinkAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import useArticleMetaTags from "../utils/useArticleMetaTags";
+import { generateApaCitation, generateBibtexCitation } from "../utils/citation";
+import Footer from "./Footer";
 
 const ArticlePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const article = articles.find((a) => a.id === id);
   const [previewError, setPreviewError] = useState(false);
 
-  useEffect(() => {
-    if (article) {
-      // Update document title
-      document.title = `${article.title} | PSL Institute`;
-
-      // Remove existing meta tags
-      const existingMetas = document.querySelectorAll(
-        'meta[name^="citation_"], meta[name="description"], meta[name="keywords"]'
-      );
-      existingMetas.forEach((meta) => meta.remove());
-
-      // Add Google Scholar meta tags
-      const metaTags = [
-        { name: "citation_title", content: article.title },
-        { name: "citation_author", content: article.authors.join("; ") },
-        { name: "citation_publication_date", content: article.publicationDate },
-        {
-          name: "citation_pdf_url",
-          content: `${window.location.origin}${article.pdfUrl}`,
-        },
-        { name: "description", content: article.abstract },
-        { name: "keywords", content: article.keywords.join(", ") },
-      ];
-
-      // Add optional meta tags
-      if (article.doi) {
-        metaTags.push({ name: "citation_doi", content: article.doi });
-      }
-      if (article.journal) {
-        metaTags.push({
-          name: "citation_journal_title",
-          content: article.journal,
-        });
-      }
-      if (article.volume) {
-        metaTags.push({ name: "citation_volume", content: article.volume });
-      }
-      if (article.pages) {
-        const [firstPage, lastPage] = article.pages.split("-");
-        metaTags.push({ name: "citation_firstpage", content: firstPage });
-        if (lastPage) {
-          metaTags.push({ name: "citation_lastpage", content: lastPage });
-        }
-      }
-
-      // Create and append meta tags
-      metaTags.forEach(({ name, content }) => {
-        const meta = document.createElement("meta");
-        meta.setAttribute("name", name);
-        meta.setAttribute("content", content);
-        document.head.appendChild(meta);
-      });
-
-      // Add authors as separate meta tags (Google Scholar prefers this)
-      article.authors.forEach((author) => {
-        const meta = document.createElement("meta");
-        meta.setAttribute("name", "citation_author");
-        meta.setAttribute("content", author);
-        document.head.appendChild(meta);
-      });
-    }
-
-    // Cleanup function
-    return () => {
-      const metasToRemove = document.querySelectorAll(
-        'meta[name^="citation_"], meta[name="description"], meta[name="keywords"]'
-      );
-      metasToRemove.forEach((meta) => meta.remove());
-      document.title = "PSL Institute";
-    };
-  }, [article]);
+  // Use the custom hook to handle all meta tag logic
+  useArticleMetaTags(article);
 
   if (!article) {
     return (
@@ -88,7 +28,7 @@ const ArticlePage: React.FC = () => {
           <h1>Article Not Found</h1>
           <p>The requested article could not be found.</p>
           <Link to="/" className="back-home">
-            ← Back to Homepage
+            <FontAwesomeIcon icon={faArrowLeft} /> Back to Homepage
           </Link>
         </div>
       </div>
@@ -99,21 +39,11 @@ const ArticlePage: React.FC = () => {
     setPreviewError(true);
   };
 
-  const getPdfEmbedUrl = (pdfUrl: string): string => {
-    // For GitHub Pages, construct the full URL
-    const fullUrl = pdfUrl.startsWith("http")
-      ? pdfUrl
-      : `${window.location.origin}${pdfUrl}`;
-
-    // Use PDF.js viewer (included in most browsers) or fallback to direct embed
-    return `${fullUrl}#toolbar=1&navpanes=1&scrollbar=1`;
-  };
-
   return (
     <div className="article-page">
       <nav className="article-nav">
         <Link to="/" className="back-link">
-          ← Back to Publications
+          <FontAwesomeIcon icon={faArrowLeft} /> Back to Homepage
         </Link>
       </nav>
 
@@ -198,7 +128,7 @@ const ArticlePage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="pdf-download-btn"
               >
-                📄 Download Full Paper (PDF)
+                <FontAwesomeIcon icon={faFilePdf} /> Download Full Paper (PDF)
               </a>
               {article.doi && (
                 <a
@@ -207,7 +137,8 @@ const ArticlePage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="external-link-btn"
                 >
-                  🔗 View on Publisher Website
+                  <FontAwesomeIcon icon={faExternalLinkAlt} /> View on Publisher
+                  Website
                 </a>
               )}
             </div>
@@ -251,55 +182,34 @@ const ArticlePage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="pdf-download-btn"
                   >
-                    📄 Download PDF Instead
+                    <FontAwesomeIcon icon={faFilePdf} /> Download PDF Instead
                   </a>
                 </div>
               )}
             </div>
           </div>
+        </section>
 
-          <div className="citation-section">
-            <h2>How to Cite</h2>
-            <div className="citation-formats">
-              <div className="citation-format">
-                <h3>APA Style</h3>
-                <div className="citation-text">
-                  {article.authors.join(", ")} (
-                  {new Date(article.publicationDate).getFullYear()}).
-                  <em> {article.title}</em>
-                  {article.journal && (
-                    <span>
-                      . <em>{article.journal}</em>
-                    </span>
-                  )}
-                  {article.volume && (
-                    <span>
-                      , <em>{article.volume}</em>
-                    </span>
-                  )}
-                  {article.pages && <span>, {article.pages}</span>}
-                  {article.doi && <span>. https://doi.org/{article.doi}</span>}
-                </div>
-              </div>
-
-              <div className="citation-format">
-                <h3>BibTeX</h3>
-                <pre className="bibtex-citation">
-                  {`@article{${article.id.replace(/-/g, "")},
-  title={${article.title}},
-  author={${article.authors.join(" and ")}},
-  year={${new Date(article.publicationDate).getFullYear()}}${
-                    article.journal ? `,\n  journal={${article.journal}}` : ""
-                  }${article.volume ? `,\n  volume={${article.volume}}` : ""}${
-                    article.pages ? `,\n  pages={${article.pages}}` : ""
-                  }${article.doi ? `,\n  doi={${article.doi}}` : ""}
-}`}
-                </pre>
+        <div className="citation-section">
+          <h2>How to Cite</h2>
+          <div className="citation-formats">
+            <div className="citation-format">
+              <h3>APA Style</h3>
+              <div className="citation-text">
+                <p>{generateApaCitation(article)}</p>
               </div>
             </div>
+            <div className="citation-format">
+              <h3>BibTeX</h3>
+              <pre className="bibtex-citation">
+                {generateBibtexCitation(article)}
+              </pre>
+            </div>
           </div>
-        </section>
+        </div>
       </article>
+
+      <Footer />
     </div>
   );
 };

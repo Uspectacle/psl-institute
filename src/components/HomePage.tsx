@@ -2,12 +2,13 @@ import React from "react";
 import { articles } from "../data/articles";
 import "./HomePage.css";
 import ArticleCard from "./ArticleCard";
+import Footer from "./Footer";
 
 const HomePage: React.FC = () => {
   return (
     <div className="homepage">
       <header className="homepage-header">
-        <img src="/pslLogo.png" alt="PSL Institute Logo" className="logo" />
+        <img src="./pslLogo.png" alt="PSL Institute Logo" className="logo" />
         <div className="homepage-title">
           <h1>PSL Institute</h1>
           <p className="subtitle">
@@ -20,7 +21,7 @@ const HomePage: React.FC = () => {
         <h2 className="intro-text">Latest Publications</h2>
         <div className="articles-grid">
           {articles.map((article) => (
-            <ArticleCard article={article} />
+            <ArticleCard article={article} key={article.id} />
           ))}
         </div>
         {articles.length === 0 && (
@@ -30,19 +31,7 @@ const HomePage: React.FC = () => {
         )}
       </main>
 
-      <footer className="homepage-footer">
-        <p className="about-section">
-          Welcome to the PSL Institute's private publications platform. This
-          space is dedicated to sharing the work, insights, and dubious
-          scientific reflections of our group of friends.
-        </p>
-        <img
-          src="/pslBlazon.png"
-          alt="PSL Institute Blazon"
-          className="logo-small"
-        />
-        <p>© 2024 PSL Institute - All rights reserved</p>{" "}
-      </footer>
+      <Footer />
     </div>
   );
 };

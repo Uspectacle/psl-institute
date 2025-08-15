@@ -8,14 +8,10 @@ type Props = { article: Article };
 
 const ArticleCard: React.FC<Props> = ({ article }) => {
   return (
-    <Link
-      key={article.id}
-      to={`/article/${article.id}`}
-      className="articleCardWrapper"
-    >
+    <Link to={`/article/${article.id}`} className="articleCardWrapper">
       <div className="cardImageContainer">
         <img
-          src={`/previews/${article.id}-preview.jpg`}
+          src={`/previews/${article.id}-preview.1.jpg`}
           alt={`Preview of ${article.title}`}
           className="preview-thumbnail"
         />
@@ -30,7 +26,9 @@ const ArticleCard: React.FC<Props> = ({ article }) => {
           </span>
         </div>
         <h3 className="cardTitle">{article.title}</h3>
-        <p className="cardAuthor">by {article.authors.join(", ")}</p>
+        <p className="cardAuthor">
+          by <em>{article.authors.join(", ")}</em>
+        </p>
       </div>
     </Link>
   );

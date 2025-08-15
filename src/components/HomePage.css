@@ -1,9 +1,9 @@
 :root {
   --primary-color: #ed9601;
   --secondary-color: #333;
-  --accent-color: #b67300;
+  --accent-color: #a75f00;
   --background-dark: #451f09;
-  --background-light: #f9f9f9;
+  --background-light: #fff7e3;
   --text-dark: #50452c;
   --text-light: #fffdc3;
 }
@@ -78,32 +78,6 @@ body {
   text-align: center;
   font-size: 1.2rem;
   color: #777;
-}
-
-.homepage-footer {
-  margin-top: 1rem;
-  background-color: var(--background-dark);
-  color: var(--primary-color);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.about-section {
-  margin: 0;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-light);
-  padding-bottom: 2rem;
-  font-size: 1.1rem;
-  max-width: 700px;
-}
-
-.logo-small {
-  height: 200px;
 }
 
 /* Responsive Design */
