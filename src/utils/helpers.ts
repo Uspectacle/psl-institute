@@ -23,7 +23,9 @@ export const getCategoryBadge = (category: string): string => {
 };
 
 export const getPdfEmbedUrl = (pdfUrl: string): string => {
-  const fullUrl = pdfUrl.startsWith("http") ? pdfUrl : `./${pdfUrl}`;
-  
+  const fullUrl = pdfUrl.startsWith("http")
+    ? pdfUrl
+    : `${process.env.PUBLIC_URL}/${pdfUrl}`;
+
   return `${fullUrl}#toolbar=1&navpanes=1&scrollbar=1`;
 };
