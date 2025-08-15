@@ -6,30 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#667eea" />
 
+    <!-- SPA GitHub Pages routing script - MUST be before other scripts -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+
+    <!-- Google Scholar Critical Meta Tags -->
+    <meta name="citation_journal_title" content="PSL Institute" />
+    <meta name="citation_publisher" content="PSL Institute" />
+    <meta name="citation_issn" content="2950-1234" />
+    <meta name="citation_online_date" content="2025" />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+
     <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Collection of academic articles and scientific research papers"
+      content="PSL Institute - Academic papers without peer-review but with love. Collection of research articles and scientific publications."
     />
     <meta
       name="keywords"
-      content="research, academic, papers, science, publications"
+      content="research, academic papers, scientific publications, preprints, academic research, scholarly articles"
     />
     <meta name="author" content="PSL Institute" />
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="PSL Institute" />
+    <!-- Dublin Core Meta Tags for Academic Indexing -->
+    <meta name="DC.Title" content="PSL Institute" />
+    <meta name="DC.Creator" content="PSL Institute" />
+    <meta name="DC.Subject" content="Academic Research" />
     <meta
-      property="og:description"
+      name="DC.Description"
       content="Collection of academic articles and scientific research papers"
     />
-    <meta property="og:url" content="%PUBLIC_URL%" />
+    <meta name="DC.Publisher" content="PSL Institute" />
+    <meta name="DC.Type" content="Text" />
+    <meta name="DC.Format" content="text/html" />
+    <meta name="DC.Language" content="en" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="PSL Institute - Academic Research Papers"
+    />
+    <meta
+      property="og:description"
+      content="PSL Institute - Academic papers without peer-review but with love"
+    />
+    <meta
+      property="og:url"
+      content="https://uspectacle.github.io/psl-institute/"
+    />
     <meta property="og:site_name" content="PSL Institute" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="PSL Institute" />
+    <meta
+      name="twitter:title"
+      content="PSL Institute - Academic Research Papers"
+    />
     <meta
       name="twitter:description"
       content="Collection of academic articles and scientific research papers"
@@ -41,7 +92,28 @@
     <!-- Manifest -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <title>PSL Institute</title>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://uspectacle.github.io/psl-institute/" />
+
+    <title>PSL Institute - Academic Research Papers</title>
+
+    <!-- JSON-LD Structured Data for Google Scholar -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "publisher": {
+          "@type": "Organization",
+          "name": "PSL Institute",
+          "url": "https://uspectacle.github.io/psl-institute/"
+        },
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "PSL Institute",
+          "issn": "2950-1234"
+        }
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -1,5 +1,5 @@
 import React from "react";
-import { articles } from "../data/articles";
+import { articles } from "../utils/articles";
 import "./HomePage.css";
 import ArticleCard from "./ArticleCard";
 import Footer from "./Footer";

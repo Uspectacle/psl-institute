@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - "public/pdfs/**"
-      - "src/data/articles.ts"
+      - "public/articles.json"
   workflow_dispatch:
 
 jobs:

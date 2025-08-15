@@ -49,7 +49,7 @@ npm start
 ### Adding New Articles
 
 1. **Add your PDF** to the `public/pdfs/` directory
-2. **Update the articles list** in `src/data/articles.ts`:
+2. **Update the articles list** in `public/articles.json`:
 
 ```typescript
 {

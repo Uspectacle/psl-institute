@@ -1,4 +1,4 @@
-import { Article } from "../data/articles";
+import { Article } from "./articles";
 
 export const generateApaCitation = (article: Article): string => {
   const authorList = article.authors.join(", ");

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Article } from "../data/articles";
+import { Article } from "../utils/articles";
 import "./ArticleCard.css";
 import { getCategoryBadge, formatDate } from "../utils/helpers";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { articles } from "../data/articles";
+import { articles } from "../utils/articles";
 import "./ArticlePage.css";
 import { formatDate, getCategoryBadge, getPdfEmbedUrl } from "../utils/helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
