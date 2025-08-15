@@ -10,15 +10,15 @@ Built by friends, for friends.
 
 **[Check out the live demo! 🌍](https://uspectacle.github.io/psl-institute/)**
 
-## 🎯 About PSL Institute
+---
 
-PSL Institute is a collaborative platform where my academics friends share their work, insights, and scientific reflections. If no journal or conference want them, here we publish it without peer-review.
+## 🎯 About the Institute
+
+PSL Institute is a collaborative platform where my academic friends can share their work, insights, and scientific reflections. If no journal or conference want them, here we publish it without peer-review.
 
 AI assistance was used during this project.
 
-**Our Mission**: None.
-
-## 🚀 Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -30,7 +30,7 @@ AI assistance was used during this project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR-USERNAME/psl-institute.git
+git clone [https://github.com/uspectacle/psl-institute.git](https://github.com/uspectacle/psl-institute.git)
 cd psl-institute
 
 # Install dependencies
@@ -39,8 +39,6 @@ npm install
 # Start development server
 npm start
 ```
-
-The site will be available at `http://localhost:3000`
 
 ### Adding New Articles
 
@@ -64,15 +62,6 @@ The site will be available at `http://localhost:3000`
 
 3. **Commit and push** - deployment is automatic!
 
-### Adding Your Research
-
-1. **Fork the repository**
-2. **Add your article** following the guidelines above
-3. **Submit a pull request** with:
-   - Your PDF file
-   - Updated `articles.ts` with metadata
-   - Brief description of your work
-
 Or just send me a DM.
 
 ## 👥 Contributing
@@ -81,4 +70,11 @@ We welcome contributions from our research community!
 
 ## 📜 License
 
-GNU General Public License v3.0 - See LICENSE file for details.
+This project is licensed under the GNU General Public License v3.0. See the LICENSE file for more details.
+
+
+
+
+
+
+

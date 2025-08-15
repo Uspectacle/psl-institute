@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { articles } from "../data/articles";
 import "./ArticlePage.css";
+import { formatDate, getCategoryBadge } from "../utils/helpers";
 
 const ArticlePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,7 +12,7 @@ const ArticlePage: React.FC = () => {
   useEffect(() => {
     if (article) {
       // Update document title
-      document.title = `${article.title} | Research Publications`;
+      document.title = `${article.title} | PSL Institute`;
 
       // Remove existing meta tags
       const existingMetas = document.querySelectorAll(
@@ -76,7 +77,7 @@ const ArticlePage: React.FC = () => {
         'meta[name^="citation_"], meta[name="description"], meta[name="keywords"]'
       );
       metasToRemove.forEach((meta) => meta.remove());
-      document.title = "Research Publications";
+      document.title = "PSL Institute";
     };
   }, [article]);
 
@@ -93,30 +94,6 @@ const ArticlePage: React.FC = () => {
       </div>
     );
   }
-
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
-  const getCategoryBadge = (category: string): string => {
-    switch (category) {
-      case "research":
-        return "Research";
-      case "review":
-        return "Review";
-      case "conference":
-        return "Conference";
-      case "preprint":
-        return "Preprint";
-      default:
-        return category;
-    }
-  };
 
   const handlePreviewError = () => {
     setPreviewError(true);
@@ -157,7 +134,7 @@ const ArticlePage: React.FC = () => {
           <h1 className="article-title">{article.title}</h1>
 
           <div className="article-authors">
-            <h2>Authors</h2>
+            <h2>{article.authors.length > 1 ? "Authors" : "Author"}</h2>
             <ul className="authors-list">
               {article.authors.map((author, index) => (
                 <li key={index} className="author-name">
@@ -240,10 +217,6 @@ const ArticlePage: React.FC = () => {
                 <>
                   <div className="pdf-preview-header">
                     <h3>PDF Preview</h3>
-                    <p className="preview-note">
-                      📱 For better viewing experience on mobile, use the
-                      download button above.
-                    </p>
                   </div>
                   <div className="pdf-embed-wrapper">
                     <iframe

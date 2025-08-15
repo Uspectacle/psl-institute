@@ -25,5 +25,7 @@ export const articles: Article[] = [
     pdfUrl: "/pdfs/lui-ou-nous.pdf",
     journal: "Mirages et Miracles",
     category: "conference",
+    volume: "1",
+    pages: "1-14",
   },
 ];

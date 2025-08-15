@@ -1,22 +1,24 @@
 .article-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   padding: 0;
   margin: 0;
 }
 
 .article-nav {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: var(--background-dark);
   padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .back-link {
-  color: #667eea;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -26,7 +28,7 @@
 }
 
 .back-link:hover {
-  color: #5a6fd8;
+  color: var(--accent-color);
 }
 
 .article-content {
@@ -42,7 +44,7 @@
 
 .article-header {
   margin-bottom: 3rem;
-  border-bottom: 2px solid #f8f9fa;
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 2rem;
 }
 
@@ -62,38 +64,37 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white;
 }
 
 .category-research {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
+  background-color: var(--primary-color);
 }
 
 .category-review {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  color: white;
+  background-color: var(--accent-color);
 }
 
 .category-conference {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-  color: white;
+  background-color: var(--secondary-color);
 }
 
 .category-preprint {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  color: #2c3e50;
+  background-color: #50452c;
+  color: #fffdc3;
 }
 
 .publication-date {
-  color: #6c757d;
+  color: var(--text-dark);
   font-size: 1rem;
   font-weight: 500;
+  opacity: 0.7;
 }
 
 .article-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: var(--text-dark);
   line-height: 1.2;
   margin: 0 0 2rem 0;
   letter-spacing: -0.01em;
@@ -102,7 +103,7 @@
 .article-authors h2,
 .publication-info h2 {
   font-size: 1.3rem;
-  color: #495057;
+  color: var(--text-dark);
   margin: 0 0 1rem 0;
   font-weight: 600;
 }
@@ -117,8 +118,8 @@
 }
 
 .author-name {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--text-light);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 500;
@@ -139,38 +140,39 @@
 .journal-name {
   font-style: italic;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--text-dark);
   font-size: 1.1rem;
 }
 
 .volume,
 .pages {
-  color: #6c757d;
+  color: var(--text-dark);
   font-weight: 500;
+  opacity: 0.8;
 }
 
 .doi-link {
-  color: #667eea;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .doi-link:hover {
-  color: #5a6fd8;
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
 .article-body {
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .article-body h2 {
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: var(--text-dark);
   margin: 2.5rem 0 1rem 0;
   font-weight: 600;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--primary-color);
   padding-left: 1rem;
 }
 
@@ -179,16 +181,16 @@
 }
 
 .abstract-content {
-  background: #f8f9fa;
+  background: var(--background-dark);
+  color: var(--text-light);
   padding: 2rem;
   border-radius: 12px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--primary-color);
 }
 
 .abstract-content p {
   margin: 0;
   font-size: 1.1rem;
-  color: #495057;
   line-height: 1.6;
 }
 
@@ -203,7 +205,7 @@
 }
 
 .keyword-tag {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: var(--accent-color);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -237,45 +239,45 @@
 }
 
 .pdf-download-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  background-color: var(--primary-color);
+  color: var(--background-dark);
+  box-shadow: 0 4px 15px rgba(237, 150, 1, 0.3);
 }
 
 .pdf-download-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 25px rgba(237, 150, 1, 0.4);
 }
 
 .pdf-preview-btn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  background-color: var(--accent-color);
   color: white;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  box-shadow: 0 4px 15px rgba(182, 115, 0, 0.3);
 }
 
 .pdf-preview-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+  box-shadow: 0 8px 25px rgba(182, 115, 0, 0.4);
 }
 
 .external-link-btn {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  border: 2px solid #667eea;
+  background: rgba(237, 150, 1, 0.1);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
 
 .external-link-btn:hover {
-  background: #667eea;
-  color: white;
+  background: var(--primary-color);
+  color: var(--background-dark);
   transform: translateY(-3px);
 }
 
 /* PDF Preview Styles */
 .pdf-preview-container {
   margin-top: 2rem;
-  border: 2px solid #e9ecef;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   overflow: hidden;
   background: white;
@@ -283,30 +285,31 @@
 }
 
 .pdf-preview-header {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background-color: #f8f9fa;
   padding: 1.5rem;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .pdf-preview-header h3 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: var(--text-dark);
   font-size: 1.3rem;
   font-weight: 600;
 }
 
 .preview-note {
   margin: 0;
-  color: #6c757d;
+  color: var(--text-dark);
   font-size: 0.9rem;
   font-style: italic;
+  opacity: 0.6;
 }
 
 .pdf-embed-wrapper {
   position: relative;
   width: 100%;
   height: 800px;
-  background: #f8f9fa;
+  background-color: #f8f9fa;
 }
 
 .pdf-embed {
@@ -319,36 +322,38 @@
 .pdf-preview-error {
   padding: 3rem 2rem;
   text-align: center;
-  background: #fff3cd;
-  border: 1px solid #ffeaa7;
+  background: #fefce8;
+  border: 1px solid #fde68a;
 }
 
 .pdf-preview-error h3 {
-  color: #856404;
+  color: #a16207;
   margin: 0 0 1rem 0;
   font-size: 1.3rem;
 }
 
 .pdf-preview-error p {
-  color: #856404;
+  color: #a16207;
   margin: 0 0 2rem 0;
   line-height: 1.6;
 }
 
 .pdf-preview-error .pdf-download-btn {
-  background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-  color: #212529;
+  background: var(--primary-color);
+  color: var(--background-dark);
   font-weight: 600;
+  box-shadow: none;
 }
 
 .pdf-preview-error .pdf-download-btn:hover {
-  background: linear-gradient(135deg, #e0a800 0%, #ea6100 100%);
+  background: var(--accent-color);
+  color: var(--background-light);
 }
 
 .citation-section {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 2px solid #f8f9fa;
+  border-top: 2px solid var(--primary-color);
 }
 
 .citation-formats {
@@ -358,24 +363,24 @@
 
 .citation-format h3 {
   font-size: 1.2rem;
-  color: #495057;
+  color: var(--text-dark);
   margin: 0 0 1rem 0;
   font-weight: 600;
 }
 
 .citation-text {
-  background: #f8f9fa;
+  background: var(--background-dark);
+  color: var(--text-light);
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #28a745;
-  font-family: "Georgia", serif;
+  border-left: 4px solid var(--primary-color);
+  font-family: serif;
   line-height: 1.6;
-  color: #495057;
 }
 
 .bibtex-citation {
-  background: #2c3e50;
-  color: #ecf0f1;
+  background: var(--secondary-color);
+  color: white;
   padding: 1.5rem;
   border-radius: 8px;
   font-family: "Consolas", "Monaco", monospace;
@@ -395,34 +400,36 @@
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   margin-top: 3rem;
+  color: var(--text-dark);
 }
 
 .article-not-found h1 {
   font-size: 2rem;
-  color: #dc3545;
+  color: var(--primary-color);
   margin-bottom: 1rem;
 }
 
 .article-not-found p {
-  color: #6c757d;
+  color: var(--text-dark);
   font-size: 1.1rem;
   margin-bottom: 2rem;
+  opacity: 0.7;
 }
 
 .back-home {
-  color: #667eea;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
   padding: 1rem 2rem;
-  border: 2px solid #667eea;
+  border: 2px solid var(--primary-color);
   border-radius: 8px;
   display: inline-block;
   transition: all 0.3s ease;
 }
 
 .back-home:hover {
-  background: #667eea;
-  color: white;
+  background: var(--primary-color);
+  color: var(--background-dark);
   transform: translateY(-2px);
 }
 
