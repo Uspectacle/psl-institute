@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
         alt="PSL Institute Blazon"
         className="logo-small"
       />
-      <p>© 2024 PSL Institute - All rights reserved</p>
+      <p>© 2021 PSL Institute - All rights reserved</p>
       <a
         href="https://github.com/Uspectacle/psl-institute"
         target="_blank"
