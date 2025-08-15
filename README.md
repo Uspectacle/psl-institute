@@ -8,7 +8,13 @@ Built by friends, for friends.
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen?logo=github)
 ![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Ready-4285F4?logo=google-scholar)
 
-**[Enter the library](https://uspectacle.github.io/psl-institute/)**
+---
+
+<p align="center">
+  <a href="https://uspectacle.github.io/psl-institute/" target="_blank">
+    <strong>✨ Click here to enter the PSL Library ✨</strong>
+  </a>
+</p>
 
 ---
 
