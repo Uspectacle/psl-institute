@@ -11,7 +11,7 @@ const ArticleCard: React.FC<Props> = ({ article }) => {
     <Link to={`/article/${article.id}`} className="articleCardWrapper">
       <div className="cardImageContainer">
         <img
-          src={`./previews/${article.id}-preview.1.jpg`}
+          src={`${process.env.PUBLIC_URL}/previews/${article.id}-preview.1.jpg`}
           alt={`Preview of ${article.title}`}
           className="preview-thumbnail"
         />

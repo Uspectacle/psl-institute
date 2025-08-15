@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         reflections of our group of friends.
       </p>
       <img
-        src="./pslBlazon.png"
+        src={`${process.env.PUBLIC_URL}/pslBlazon.png`}
         alt="PSL Institute Blazon"
         className="logo-small"
       />

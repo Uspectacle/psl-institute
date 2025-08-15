@@ -153,7 +153,7 @@ const ArticlePage: React.FC = () => {
                   </div>
                   <div className="pdf-embed-wrapper">
                     <iframe
-                      src={pdfUrl}
+                      src={`${process.env.PUBLIC_URL}/pdfUrl`}
                       className="pdf-embed"
                       title={`PDF Preview: ${article.title}`}
                       onError={handlePreviewError}

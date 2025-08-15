@@ -8,7 +8,11 @@ const HomePage: React.FC = () => {
   return (
     <div className="homepage">
       <header className="homepage-header">
-        <img src="./pslLogo.png" alt="PSL Institute Logo" className="logo" />
+        <img
+          src={`${process.env.PUBLIC_URL}/pslLogo.png`}
+          alt="PSL Institute Logo"
+          className="logo"
+        />
         <div className="homepage-title">
           <h1>PSL Institute</h1>
           <p className="subtitle">
