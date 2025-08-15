@@ -39,6 +39,8 @@ const ArticlePage: React.FC = () => {
     setPreviewError(true);
   };
 
+  const pdfUrl = getPdfEmbedUrl(article.pdfUrl);
+
   return (
     <div className="article-page">
       <nav className="article-nav">
@@ -123,7 +125,7 @@ const ArticlePage: React.FC = () => {
             <h2>Download</h2>
             <div className="download-actions">
               <a
-                href={article.pdfUrl}
+                href={pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pdf-download-btn"
@@ -151,7 +153,7 @@ const ArticlePage: React.FC = () => {
                   </div>
                   <div className="pdf-embed-wrapper">
                     <iframe
-                      src={getPdfEmbedUrl(article.pdfUrl)}
+                      src={pdfUrl}
                       className="pdf-embed"
                       title={`PDF Preview: ${article.title}`}
                       onError={handlePreviewError}
@@ -159,7 +161,7 @@ const ArticlePage: React.FC = () => {
                       <p>
                         Your browser does not support PDF preview.
                         <a
-                          href={article.pdfUrl}
+                          href={pdfUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                         >

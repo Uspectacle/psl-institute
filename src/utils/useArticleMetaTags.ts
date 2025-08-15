@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Article } from "../data/articles";
+import { getPdfEmbedUrl } from "./helpers";
 
 const useArticleMetaTags = (article: Article | undefined) => {
   useEffect(() => {
@@ -17,7 +18,7 @@ const useArticleMetaTags = (article: Article | undefined) => {
         { name: "citation_publication_date", content: article.publicationDate },
         {
           name: "citation_pdf_url",
-          content: `${window.location.origin}${article.pdfUrl}`,
+          content: getPdfEmbedUrl(article.pdfUrl),
         },
         { name: "description", content: article.abstract },
         { name: "keywords", content: article.keywords.join(", ") },
