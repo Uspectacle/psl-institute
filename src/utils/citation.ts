@@ -14,6 +14,9 @@ export const generateApaCitation = (article: Article): string => {
   if (article.pages) {
     citation += `, ${article.pages}`;
   }
+  if (article.publisher) {
+    citation += `. ${article.publisher}`;
+  }
   if (article.doi) {
     citation += `. https://doi.org/${article.doi}`;
   }
@@ -29,6 +32,8 @@ export const generateBibtexCitation = (article: Article): string => {
     article.journal ? `,\n  journal={${article.journal}}` : ""
   }${article.volume ? `,\n  volume={${article.volume}}` : ""}${
     article.pages ? `,\n  pages={${article.pages}}` : ""
-  }${article.doi ? `,\n  doi={${article.doi}}` : ""}
+  }${article.publisher ? `,\n  publisher={${article.publisher}}` : ""}${
+    article.doi ? `,\n  doi={${article.doi}}` : ""
+  }
 }`;
 };

@@ -24,21 +24,32 @@ const useArticleMetaTags = (article: Article | undefined) => {
         { name: "keywords", content: article.keywords.join(", ") },
       ];
 
+      if (article.publisher) {
+        metaTags.push({
+          name: "citation_publisher",
+          content: article.publisher,
+        });
+      }
+
       if (article.doi) {
         metaTags.push({ name: "citation_doi", content: article.doi });
       }
+
       if (article.journal) {
         metaTags.push({
           name: "citation_journal_title",
           content: article.journal,
         });
       }
+
       if (article.volume) {
         metaTags.push({ name: "citation_volume", content: article.volume });
       }
+
       if (article.pages) {
         const [firstPage, lastPage] = article.pages.split("-");
         metaTags.push({ name: "citation_firstpage", content: firstPage });
+
         if (lastPage) {
           metaTags.push({ name: "citation_lastpage", content: lastPage });
         }

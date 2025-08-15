@@ -11,6 +11,7 @@ export interface Article {
   volume?: string;
   pages?: string;
   category: "research" | "review" | "conference" | "preprint";
+  publisher: "PSL Institute";
 }
 
 export const articles: Article[] = [
@@ -27,5 +28,6 @@ export const articles: Article[] = [
     category: "conference",
     volume: "1",
     pages: "1-14",
+    publisher: "PSL Institute",
   },
 ];
