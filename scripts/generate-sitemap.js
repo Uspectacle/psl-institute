@@ -14,7 +14,7 @@ try {
   process.exit(1);
 }
 
-const baseUrl = "https://uspectacle.github.io/psl-institute";
+const baseUrl = "https://psl.institute";
 const currentDate = new Date().toISOString().split("T")[0];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

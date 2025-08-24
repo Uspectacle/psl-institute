@@ -5,7 +5,7 @@ const useArticleMetaTags = (article: Article | undefined) => {
   useEffect(() => {
     if (!article) return;
 
-    const baseUrl = "https://uspectacle.github.io/psl-institute";
+    const baseUrl = "https://psl.institute";
     const articleUrl = `${baseUrl}/article/${article.id}`;
     const pdfUrl = article.pdfUrl.startsWith("http")
       ? article.pdfUrl
@@ -133,7 +133,7 @@ const useArticleMetaTags = (article: Article | undefined) => {
       publisher: {
         "@type": "Organization",
         name: "PSL Institute",
-        url: "https://uspectacle.github.io/psl-institute/",
+        url: "https://psl.institute/",
       },
       isPartOf: {
         "@type": "Periodical",

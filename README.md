@@ -11,7 +11,7 @@ Built by friends, for friends.
 ---
 
 <p align="center">
-  <a href="https://uspectacle.github.io/psl-institute/" target="_blank">
+  <a href="https://psl.institute/" target="_blank">
     <strong>✨ Click here to enter the PSL Library ✨</strong>
   </a>
 </p>
