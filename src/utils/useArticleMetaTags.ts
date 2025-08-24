@@ -114,9 +114,6 @@ const useArticleMetaTags = (article: Article | undefined) => {
     canonical.href = articleUrl;
     document.head.appendChild(canonical);
 
-    // Update page title
-    document.title = `${article.title} | PSL Institute`;
-
     // JSON-LD Structured Data for Google Scholar
     const jsonLd = document.createElement("script");
     jsonLd.type = "application/ld+json";
