@@ -2,32 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/pumpkin.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#667eea" />
 
-    <!-- SPA GitHub Pages routing script - MUST be before other scripts -->
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .join("?");
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      })(window.location);
-    </script>
-
-    <!-- Google Scholar Critical Meta Tags -->
+    <!-- --- SEO & Google Scholar Meta Tags --- -->
     <meta name="citation_journal_title" content="PSL Institute" />
     <meta name="citation_publisher" content="PSL Institute" />
     <meta name="citation_issn" content="2950-1234" />
@@ -35,7 +14,6 @@
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />
 
-    <!-- SEO Meta Tags -->
     <meta
       name="description"
       content="PSL Institute - Academic papers without peer-review but with love. Collection of research articles and scientific publications."
@@ -46,7 +24,7 @@
     />
     <meta name="author" content="PSL Institute" />
 
-    <!-- Dublin Core Meta Tags for Academic Indexing -->
+    <!-- Dublin Core Meta Tags -->
     <meta name="DC.Title" content="PSL Institute" />
     <meta name="DC.Creator" content="PSL Institute" />
     <meta name="DC.Subject" content="Academic Research" />
@@ -59,7 +37,7 @@
     <meta name="DC.Format" content="text/html" />
     <meta name="DC.Language" content="en" />
 
-    <!-- Open Graph Meta Tags -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -72,7 +50,7 @@
     <meta property="og:url" content="https://psl.institute/" />
     <meta property="og:site_name" content="PSL Institute" />
 
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:title"
@@ -94,19 +72,16 @@
 
     <title>PSL Institute - Academic Research Papers</title>
 
-    <!-- JSON-LD Structured Data for Google Scholar -->
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ScholarlyArticle",
+        "@type": "Periodical",
+        "name": "PSL Institute",
         "publisher": {
           "@type": "Organization",
           "name": "PSL Institute",
           "url": "https://psl.institute/"
-        },
-        "isPartOf": {
-          "@type": "Periodical",
-          "name": "PSL Institute",
         }
       }
     </script>

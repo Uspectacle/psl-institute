@@ -59,7 +59,7 @@ npm start
   abstract: "Your abstract here...",
   keywords: ["keyword1", "keyword2"],
   publicationDate: "2025-01-15",
-  pdfUrl: "/pdfs/your-article.pdf",
+  pdfUrl: "pdfs/your-article.pdf",
   doi: "10.1000/your-doi", // optional
   journal: "PSL Institute Papers", // optional
   category: "research"

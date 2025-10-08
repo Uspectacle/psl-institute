@@ -5,16 +5,17 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="homepage-footer">
+    <footer className="footer">
       <p className="about-section">
-        Welcome to the PSL Institute's private publications platform. This space
-        is dedicated to sharing the work, insights, and dubious scientific
-        reflections of our group of friends.
+        Welcome to the PSL Institute's private publications platform.
+        <br />
+        This space is dedicated to sharing the work, insights, and dubious
+        scientific reflections of our group of friends.
       </p>
       <img
-        src={`${process.env.PUBLIC_URL}/pslBlazon.png`}
+        src={`${process.env.PUBLIC_URL}/blazon.png`}
         alt="PSL Institute Blazon"
-        className="logo-small"
+        className="blazon"
       />
       <p>© 2021 PSL Institute - All rights reserved</p>
       <a

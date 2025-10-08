@@ -1,108 +1,55 @@
-:root {
-  --primary-color: #ed9601;
-  --secondary-color: #333;
-  --accent-color: #a75f00;
-  --background-dark: #451f09;
-  --background-light: #fff7e3;
-  --text-dark: #50452c;
-  --text-light: #fffdc3;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
-}
+/* ============================================
+   HOMEPAGE
+   ============================================ */
 
 .homepage {
-  min-height: 100vh;
-  background-color: var(--background-light);
-  color: var(--text-dark);
-}
-
-.homepage-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--background-dark);
-  color: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  height: 10rem;
-}
-
-.homepage-title {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  padding: 1rem 2rem;
-}
-
-.homepage-title h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  font-weight: 700;
-  color: var(--primary-color);
-}
-
-.subtitle {
-  font-size: 1rem;
-  margin: 0;
-  color: var(--text-light);
-}
-
-.homepage-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  align-items: center;
 }
 
 .intro-text {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-title-text);
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 2.5rem;
-  color: var(--accent-color);
-  font-weight: 600;
+  margin-bottom: var(--space-6);
+  border-bottom: 2px solid var(--color-title-text);
 }
+
+/* ============================================
+   ARTICLES GRID
+   ============================================ */
 
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  gap: var(--space-4);
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .no-articles {
   text-align: center;
-  font-size: 1.2rem;
-  color: #777;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  padding: var(--space-8);
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
 @media (max-width: 768px) {
-  .homepage-header {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
+  .intro-text {
+    font-size: var(--text-2xl);
   }
 
   .articles-grid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .homepage-title {
-    align-items: center;
-    padding-top: 0;
-  }
-
-  .homepage-main {
-    padding: 2rem 1rem;
-  }
-
-  .homepage-title h1 {
-    font-size: 2rem;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 }

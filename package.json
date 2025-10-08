@@ -22,14 +22,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run generate-sitemap && react-scripts build",
+    "build": "npm run generate-html && npm run generate-sitemap && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "generate-previews": "node scripts/generate-previews.js",
-    "generate-previews:dev": "npm run generate-previews && echo 'Previews generated for development'",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-html": "node scripts/generate-html.js"
   },
   "eslintConfig": {
     "extends": [
