@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "npx serve@latest out",
     "lint": "eslint",
     "predeploy": "npm run generate-html && npm run generate-sitemap && npm run build",
     "deploy": "gh-pages -d build",
