@@ -30,6 +30,7 @@ export default function ArticlePage({ article }: Props) {
   };
 
   const pdfUrl = getPdfEmbedUrl(article.pdfUrl);
+
   return (
     <>
       <Head>
