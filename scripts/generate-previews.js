@@ -1,11 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-const pdf2pic = require("pdf2pic");
+import { existsSync, mkdirSync, readdirSync, unlinkSync, statSync } from "fs";
+import { join, extname, basename } from "path";
+import { fromPath } from "pdf2pic";
 
 // Configuration
 const CONFIG = {
-  pdfsDir: path.join(process.cwd(), "public", "pdfs"),
-  previewsDir: path.join(process.cwd(), "public", "previews"),
+  pdfsDir: join(process.cwd(), "public", "pdfs"),
+  previewsDir: join(process.cwd(), "public", "previews"),
   density: 150,
   width: 600,
   height: 800,
@@ -19,19 +19,19 @@ const CONFIG = {
 async function cleanPreviewsDirectory() {
   console.log("🧹 Cleaning previews directory...");
 
-  if (!fs.existsSync(CONFIG.previewsDir)) {
-    fs.mkdirSync(CONFIG.previewsDir, { recursive: true });
+  if (!existsSync(CONFIG.previewsDir)) {
+    mkdirSync(CONFIG.previewsDir, { recursive: true });
     console.log("📁 Created previews directory");
     return;
   }
 
-  const files = fs.readdirSync(CONFIG.previewsDir);
+  const files = readdirSync(CONFIG.previewsDir);
   let deletedCount = 0;
 
   for (const file of files) {
     if (file.endsWith("-preview.jpg") || file.endsWith("-preview.png")) {
-      const filePath = path.join(CONFIG.previewsDir, file);
-      fs.unlinkSync(filePath);
+      const filePath = join(CONFIG.previewsDir, file);
+      unlinkSync(filePath);
       deletedCount++;
     }
   }
@@ -43,19 +43,16 @@ async function cleanPreviewsDirectory() {
  * Check if a PDF file exists
  */
 function pdfExists(articleId) {
-  const pdfPath = path.join(CONFIG.pdfsDir, `${articleId}.pdf`);
-  return fs.existsSync(pdfPath);
+  const pdfPath = join(CONFIG.pdfsDir, `${articleId}.pdf`);
+  return existsSync(pdfPath);
 }
 
 /**
  * Generate preview image for a single PDF
  */
-async function generateSinglePreview(articleId) {
-  const pdfPath = path.join(CONFIG.pdfsDir, `${articleId}.pdf`);
-  const outputPath = path.join(
-    CONFIG.previewsDir,
-    `${articleId}-preview.1.jpg`
-  );
+export async function generateSinglePreview(articleId) {
+  const pdfPath = join(CONFIG.pdfsDir, `${articleId}.pdf`);
+  const outputPath = join(CONFIG.previewsDir, `${articleId}-preview.1.jpg`);
 
   if (!pdfExists(articleId)) {
     return {
@@ -68,7 +65,7 @@ async function generateSinglePreview(articleId) {
   try {
     console.log(`📄 Processing: ${articleId}...`);
 
-    const convert = pdf2pic.fromPath(pdfPath, {
+    const convert = fromPath(pdfPath, {
       density: CONFIG.density,
       saveFilename: `${articleId}-preview`,
       savePath: CONFIG.previewsDir,
@@ -84,11 +81,11 @@ async function generateSinglePreview(articleId) {
     console.log(
       "Output file exists after conversion:",
       outputPath,
-      fs.existsSync(outputPath)
+      existsSync(outputPath)
     );
 
-    if (result && fs.existsSync(outputPath)) {
-      const stats = fs.statSync(outputPath);
+    if (result && existsSync(outputPath)) {
+      const stats = statSync(outputPath);
       const fileSizeKB = Math.round(stats.size / 1024);
 
       return {
@@ -118,14 +115,13 @@ async function generateSinglePreview(articleId) {
 /**
  * Generate all preview images
  */
-async function generateAllPreviews() {
+export async function generateAllPreviews() {
   console.log("🚀 Starting PDF preview generation...");
 
   // Get all PDF files from the target directory
-  const pdfFiles = fs
-    .readdirSync(CONFIG.pdfsDir)
-    .filter((file) => path.extname(file).toLowerCase() === ".pdf")
-    .map((file) => path.basename(file, ".pdf"));
+  const pdfFiles = readdirSync(CONFIG.pdfsDir)
+    .filter((file) => extname(file).toLowerCase() === ".pdf")
+    .map((file) => basename(file, ".pdf"));
 
   console.log(`📋 Found ${pdfFiles.length} PDF files in the target directory`);
 
@@ -159,14 +155,13 @@ async function generateAllPreviews() {
   // List generated files
   if (successCount > 0) {
     console.log("\n📸 Generated preview files:");
-    const previewFiles = fs
-      .readdirSync(CONFIG.previewsDir)
+    const previewFiles = readdirSync(CONFIG.previewsDir)
       .filter((file) => file.endsWith("-preview.jpg"))
       .sort();
 
     previewFiles.forEach((file) => {
-      const filePath = path.join(CONFIG.previewsDir, file);
-      const stats = fs.statSync(filePath);
+      const filePath = join(CONFIG.previewsDir, file);
+      const stats = statSync(filePath);
       const fileSizeKB = Math.round(stats.size / 1024);
       console.log(`  📄 ${file} (${fileSizeKB}KB)`);
     });
@@ -202,9 +197,3 @@ async function main() {
 if (require.main === module) {
   main();
 }
-
-// Export functions for external use
-module.exports = {
-  generateAllPreviews,
-  generateSinglePreview,
-};

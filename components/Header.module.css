@@ -2,7 +2,7 @@
    HEADER
    ============================================ */
 
-.header {
+.header a {
   background-color: var(--color-dark);
   padding: var(--space-1);
   display: flex;
@@ -12,6 +12,16 @@
   cursor: pointer;
   text-align: center;
   filter: drop-shadow(2px 2px 4px var(--color-dark-transparent));
+  color: unset;
+  text-decoration: unset;
+}
+
+.header a:hover {
+  filter: drop-shadow(2px 2px 4px var(--color-dark));
+}
+
+.header a:focus {
+  filter: none;
 }
 
 .logo {
@@ -40,7 +50,7 @@
    ============================================ */
 
 @media (max-width: 768px) {
-  .header {
+  .header a {
     flex-direction: column;
     padding: var(--space-2);
     padding-top: var(--space-1);

@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.intro-text {
+.intro_text {
   font-size: var(--text-3xl);
   font-weight: var(--font-semibold);
   color: var(--color-title-text);
@@ -24,7 +24,7 @@
    ARTICLES GRID
    ============================================ */
 
-.articles-grid {
+.articles_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--space-4);
@@ -32,7 +32,7 @@
   justify-content: center;
 }
 
-.no-articles {
+.no_articles {
   text-align: center;
   color: var(--color-text-muted);
   font-size: var(--text-lg);
@@ -44,11 +44,11 @@
    ============================================ */
 
 @media (max-width: 768px) {
-  .intro-text {
+  .intro_text {
     font-size: var(--text-2xl);
   }
 
-  .articles-grid {
+  .articles_grid {
     grid-template-columns: 1fr;
     gap: var(--space-3);
   }

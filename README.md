@@ -43,13 +43,13 @@ cd psl-institute
 npm install
 
 # Start development server
-npm start
+npm run dev
 ```
 
 ### Adding New Articles
 
 1. **Add your PDF** to the `public/pdfs/` directory
-2. **Update the articles list** in `src/data/articles.json`:
+2. **Update the articles list** in `data/articles.json`:
 
 ```typescript
 {

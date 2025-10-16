@@ -23,7 +23,7 @@
   color: var(--color-light);
 }
 
-.about-section {
+.about_section {
   max-width: var(--content-width);
   margin: 0 auto var(--space-4);
   padding-bottom: var(--space-4);

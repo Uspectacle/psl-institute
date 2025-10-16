@@ -1,12 +1,12 @@
-const fs = require("fs");
-const path = require("path");
+import { readFileSync, writeFileSync } from "fs";
+import { join } from "path";
 
 // Read articles from JSON file
-const articlesPath = path.join(__dirname, "../src/data/articles.json");
+const articlesPath = join(__dirname, "../data/articles.json");
 
 let articlesData;
 try {
-  const articlesContent = fs.readFileSync(articlesPath, "utf8");
+  const articlesContent = readFileSync(articlesPath, "utf8");
   articlesData = JSON.parse(articlesContent);
 } catch (error) {
   console.error("Error reading or parsing articles.json:", error);
@@ -27,7 +27,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${articlesData
   .map(
     (article) => `  <url>
-    <loc>${baseUrl}/article/${article.id}</loc>
+    <loc>${baseUrl}/articles/${article.id}</loc>
     <lastmod>${article.publicationDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -37,8 +37,8 @@ ${articlesData
 </urlset>`;
 
 // Write sitemap to public folder
-const publicPath = path.join(__dirname, "../public/sitemap.xml");
-fs.writeFileSync(publicPath, sitemap);
+const publicPath = join(__dirname, "../public/sitemap.xml");
+writeFileSync(publicPath, sitemap);
 
 console.log("Sitemap generated successfully!");
 console.log(`Generated sitemap with ${articlesData.length + 1} URLs`);
