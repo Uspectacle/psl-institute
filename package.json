@@ -1,6 +1,7 @@
 {
   "name": "psl-institute",
   "version": "0.1.0",
+  "type": "module",
   "homepage": "https://psl.institute",
   "scripts": {
     "dev": "next dev",
