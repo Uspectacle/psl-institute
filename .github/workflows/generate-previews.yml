@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - "public/pdfs/**"
+      - "public/articles/**"
       - "data/articles.json"
   workflow_dispatch:
 

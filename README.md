@@ -48,7 +48,7 @@ npm run dev
 
 ### Adding New Articles
 
-1. **Add your PDF** to the `public/pdfs/` directory
+1. **Add your PDF** to the `public/articles/` directory
 2. **Update the articles list** in `data/articles.json`:
 
 ```typescript
@@ -59,7 +59,7 @@ npm run dev
   abstract: "Your abstract here...",
   keywords: ["keyword1", "keyword2"],
   publicationDate: "2025-01-15",
-  pdfUrl: "pdfs/your-article.pdf",
+  pdfUrl: "articles/your-article.pdf",
   doi: "10.1000/your-doi", // optional
   journal: "PSL Institute Papers", // optional
   category: "research"

@@ -6,7 +6,7 @@ const useArticleMetaTags = (article: Article | undefined) => {
     if (!article) return;
 
     const baseUrl = "https://psl.institute";
-    const articleUrl = `${baseUrl}/article/${article.id}`;
+    const articleUrl = `${baseUrl}/articles/${article.id}`;
     const pdfUrl = article.pdfUrl.startsWith("http")
       ? article.pdfUrl
       : `${baseUrl}/${article.pdfUrl}`;

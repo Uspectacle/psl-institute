@@ -4,7 +4,7 @@ import { fromPath } from "pdf2pic";
 
 // Configuration
 const CONFIG = {
-  pdfsDir: join(process.cwd(), "public", "pdfs"),
+  articlesDir: join(process.cwd(), "public", "articles"),
   previewsDir: join(process.cwd(), "public", "previews"),
   density: 150,
   width: 600,
@@ -43,7 +43,7 @@ async function cleanPreviewsDirectory() {
  * Check if a PDF file exists
  */
 function pdfExists(articleId) {
-  const pdfPath = join(CONFIG.pdfsDir, `${articleId}.pdf`);
+  const pdfPath = join(CONFIG.articlesDir, `${articleId}.pdf`);
   return existsSync(pdfPath);
 }
 
@@ -51,7 +51,7 @@ function pdfExists(articleId) {
  * Generate preview image for a single PDF
  */
 export async function generateSinglePreview(articleId) {
-  const pdfPath = join(CONFIG.pdfsDir, `${articleId}.pdf`);
+  const pdfPath = join(CONFIG.articlesDir, `${articleId}.pdf`);
   const outputPath = join(CONFIG.previewsDir, `${articleId}-preview.1.jpg`);
 
   if (!pdfExists(articleId)) {
@@ -119,7 +119,7 @@ export async function generateAllPreviews() {
   console.log("🚀 Starting PDF preview generation...");
 
   // Get all PDF files from the target directory
-  const pdfFiles = readdirSync(CONFIG.pdfsDir)
+  const pdfFiles = readdirSync(CONFIG.articlesDir)
     .filter((file) => extname(file).toLowerCase() === ".pdf")
     .map((file) => basename(file, ".pdf"));
 
