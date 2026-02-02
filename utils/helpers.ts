@@ -23,5 +23,5 @@ export const getCategoryBadge = (category: string): string => {
 };
 
 export const getPdfEmbedUrl = (pdfUrl: string): string => {
-  return `https://psl.institute/${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1`;
+  return `https://psl.institute/${pdfUrl}`;
 };

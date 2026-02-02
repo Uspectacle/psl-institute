@@ -30,12 +30,15 @@ export default function ArticlePage({ article }: Props) {
   };
 
   const pdfUrl = getPdfEmbedUrl(article.pdfUrl);
+  const canonicalUrl = `https://psl.institute/articles/${article.id}`;
 
   return (
     <>
       <Head>
         <title>{article.title}</title>
         <meta name="description" content={article.abstract} />
+        <link rel="canonical" href={canonicalUrl} />
+
         {/* Google Scholar Meta Tags */}
         <meta name="citation_title" content={article.title} />
         {article.authors.map((author, index) => (
@@ -46,14 +49,84 @@ export default function ArticlePage({ article }: Props) {
           content={article.publicationDate}
         />
         <meta name="citation_pdf_url" content={pdfUrl} />
+        <meta name="citation_fulltext_html_url" content={canonicalUrl} />
+        <meta name="citation_abstract" content={article.abstract} />
+        <meta name="citation_language" content={article.lang ?? "en"} />
+        
         {article.doi && <meta name="citation_doi" content={article.doi} />}
         {article.keywords?.map((keyword, index) => (
           <meta key={index} name="citation_keyword" content={keyword} />
         ))}
+        
+        {/* Journal/Publisher information */}
         <meta name="citation_journal_title" content="PSL Institute" />
-        <meta name="robots" content="index,follow" />{" "}
+        <meta name="citation_publisher" content="PSL Institute" />
+        
+        {/* Optional: Add volume/issue if available */}
+        {article.volume && (
+          <meta name="citation_volume" content={article.volume} />
+        )}
+        {article.pages && (
+          <meta name="citation_firstpage" content={article.pages.split("-")[0]} />
+        )}
+        {article.pages && article.pages.includes("-") && (
+          <meta name="citation_lastpage" content={article.pages.split("-")[1]} />
+        )}
+        
+        {/* Indexing directives */}
+        <meta name="citation_online_date" content="2025" />
+        <meta name="robots" content="index,follow" />
+        <meta name="googlebot" content="index,follow" />
+        
+        {/* Open Graph tags with article-specific URL */}
         <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.abstract} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
         <meta property="og:site_name" content="PSL Institute" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.abstract} />
+        
+        {/* Dublin Core metadata */}
+        <meta name="DC.Title" content={article.title} />
+        <meta name="DC.Creator" content={article.authors.join("; ")} />
+        <meta name="DC.Date" content={article.publicationDate} />
+        <meta name="DC.Description" content={article.abstract} />
+        <meta name="DC.Publisher" content="PSL Institute" />
+        <meta name="DC.Type" content="Text" />
+        <meta name="DC.Format" content="application/pdf" />
+        <meta name="DC.Language" content={article.lang ?? "en"} />
+        {article.doi && <meta name="DC.Identifier" content={`https://doi.org/${article.doi}`} />}
+        
+        {/* JSON-LD Structured Data for ScholarlyArticle */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ScholarlyArticle",
+              "headline": article.title,
+              "abstract": article.abstract,
+              "author": article.authors.map(author => ({
+                "@type": "Person",
+                "name": author
+              })),
+              "datePublished": article.publicationDate,
+              "publisher": {
+                "@type": "Organization",
+                "name": "PSL Institute"
+              },
+              "url": canonicalUrl,
+              "mainEntityOfPage": canonicalUrl,
+              ...(article.doi && { "identifier": `https://doi.org/${article.doi}` }),
+              "keywords": article.keywords?.join(", "),
+              "inLanguage": article.lang ?? "en"
+            }),
+          }}
+        />
       </Head>
 
       <Layout>

@@ -11,8 +11,9 @@ export default function HomePage() {
         <title>PSL Institute</title>
         <meta
           name="description"
-          content="Research articles from PSL Institute"
+          content="PSL Institute - Academic papers without peer-review but with love."
         />
+        <link rel="canonical" href="https://psl.institute/" />
       </Head>
 
       <Layout>

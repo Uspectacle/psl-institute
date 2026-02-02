@@ -14,6 +14,7 @@ export interface Article {
   pages?: string;
   category: "research" | "review" | "conference" | "preprint";
   publisher: "PSL Institute";
+  lang?: string;
 }
 
 export const articles: Article[] = articlesData as Article[];

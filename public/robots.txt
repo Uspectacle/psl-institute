@@ -2,20 +2,24 @@ User-agent: *
 Allow: /
 Allow: /articles/
 Allow: *.pdf
+Allow: /*.pdf
 
 User-agent: Googlebot
 Allow: /
 Allow: /articles/
 Allow: *.pdf
+Allow: /*.pdf
 
 User-agent: Google-Scholar
 Allow: /
 Allow: /articles/
 Allow: *.pdf
+Allow: /*.pdf
 
 User-agent: Googlebot-Scholar
 Allow: /
 Allow: /articles/
 Allow: *.pdf
+Allow: /*.pdf
 
 Sitemap: https://psl.institute/sitemap.xml
